@@ -11,7 +11,9 @@ Somewhat simple script to allow for the use of a "portable" version of powershel
 
 ## Prerequisites
 - pick a location for the repository structure to go
-- (if using a portable powershell version) ensure you download the .zip version of the PowerShell installation, and extract all files *within* the zip into the ```./PowerShell``` directory. To confirm you have it right, the batch file included should be able to run ```./PowerShell/pwsh.exe``` with no problems
+- If you're planning on using a Portable PowerShell 7+ Instance:
+    - ensure you download the .zip version of the PowerShell installation, **and unblock the file using the zip file properties** (saves a lot of run dialogs later)
+    - extract all files *within* the  PowerShell zip into the ```./PowerShell``` directory. To confirm you have it right, the batch file included should be able to run ```./PowerShell/pwsh.exe``` with no problems
 - modify the included ```modules.txt``` file to your liking. By default, the script will install the following modules:
     - Az
     - Microsoft.Graph
@@ -30,7 +32,7 @@ HOWEVER, if you needed ```bongoscript``` at specifically v1.4.20, would would in
 bongoscript|1.4.20
 ```
 
-***NOTE: due to how I did this code, there is currently no trim for the split variable, meaning that there needs to be NO WHITESPACE between the package name, pip-separator, and version number!!!***
+***NOTE: While this solution can technically support whitespace between the module name, pipe-separator and version number, I'm not recommending it***
 
 ## Limitations
 - no error checking for whitespace in pipe-separated ```modules.txt``` file
