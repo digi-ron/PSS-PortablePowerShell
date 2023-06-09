@@ -35,14 +35,14 @@ foreach($module in $moduleArray)
     $splitvar = $module.Split("|")
     if($splitvar[1])
     {
-        if(-not (Test-Path -Path "$($newModuleLocation)\$($splitvar[0])"))
+        if(-not (Test-Path -Path "$($newModuleLocation)\$($splitvar[0].Trim())"))
         {
-            Load-Local -moduleName "$($splitvar[0])" -moduleVersion $splitvar[1]
-            Write-Output "Module $($splitvar[0]) (v$($splitvar[1])) installed"
+            Load-Local -moduleName "$($splitvar[0].Trim())" -moduleVersion $splitvar[1].Trim()
+            Write-Output "Module $($splitvar[0].Trim()) (v$($splitvar[1].Trim())) installed"
         }
         else
         {
-            Write-Output "Module $($splitvar[0]) (v$($splitvar[1])) already installed"
+            Write-Output "Module $($splitvar[0].Trim()) (v$($splitvar[1].Trim())) already installed"
         }
     }
     else
@@ -54,7 +54,7 @@ foreach($module in $moduleArray)
         }
         else
         {
-            Write-Output "Module $($splitvar[0]) already installed"
+            Write-Output "Module $($module) already installed"
         }
     }
     
