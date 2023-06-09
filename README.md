@@ -12,4 +12,22 @@ Somewhat simple script to allow for the use of a "portable" version of powershel
 ## Prerequisites
 - pick a location for the repository structure to go
 - (if using a portable powershell version) ensure you download the .zip version of the PowerShell installation, and extract all files *within* the zip into the ```./PowerShell``` directory. To confirm you have it right, the batch file included should be able to run ```./PowerShell/pwsh.exe``` with no problems
-- 
+- modify the included ```modules.txt``` file to your liking. By default, the script will install the following modules:
+    - Az
+    - Microsoft.Graph
+    - PnP.PowerShell (v1.12.0)
+- run the ```launch.bat``` file, and happy scripting!
+
+## modules.txt structure
+The modules.txt file follows a simple, pipe-separated syntax, where the module to be installed is on the left side, and should you wish to install a certain version of a package, a ```|xx.xx.xx``` should be added to the end of the line.
+
+For example, if you just needed the latest ```bongoscript``` module, you would simply add:
+```
+bongoscript
+```
+HOWEVER, if you needed ```bongoscript``` at specifically v1.4.20, would would instead need:
+```
+bongoscript|1.4.20
+```
+
+***NOTE: due to how I did this code, there is currently no trim for the split variable, meaning that there needs to be NO WHITESPACE between the package name, pip-separator, and version number!!!***
