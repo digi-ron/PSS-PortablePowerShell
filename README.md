@@ -31,3 +31,8 @@ bongoscript|1.4.20
 ```
 
 ***NOTE: due to how I did this code, there is currently no trim for the split variable, meaning that there needs to be NO WHITESPACE between the package name, pip-separator, and version number!!!***
+
+## Limitations
+- no error checking for whitespace in pipe-separated ```modules.txt``` file
+- ```Remove-Local``` really only works if the module in question only has one directory e.g. ```PnP.PowerShell```, and does not work with more complex modules with dependencies such as ```Az```
+- no module "installed" comes up in the ```Get-Module``` command, as they're technically not installed properly, I'm simply modifying the ```$env:PSModulePath``` variable for the script session
