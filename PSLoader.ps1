@@ -57,6 +57,4 @@ foreach($module in $moduleArray)
             Write-Output "Module $($module) already installed"
         }
     }
-    
-    
 }
