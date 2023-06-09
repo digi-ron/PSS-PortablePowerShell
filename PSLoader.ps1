@@ -38,7 +38,6 @@ foreach($module in $moduleArray)
         if(-not (Test-Path -Path "$($newModuleLocation)\$($splitvar[0])"))
         {
             Load-Local -moduleName "$($splitvar[0])" -moduleVersion $splitvar[1]
-            # Find-Module -Name "$($splitvar[0])" -RequiredVersion $splitvar[1] | Save-Module -Path $newModuleLocation -Force
             Write-Output "Module $($splitvar[0]) (v$($splitvar[1])) installed"
         }
         else
@@ -51,7 +50,6 @@ foreach($module in $moduleArray)
         if(-not (Test-Path -Path "$($newModuleLocation)\$($module)"))
         {
             Load-Local -moduleName "$($module)"
-            # Find-Module -Name "$($module)" | Save-Module -Path $newModuleLocation -Force
             Write-Output "Module $($module) installed"
         }
         else
