@@ -1,5 +1,5 @@
 # PSS-PortablePowerShell
-Somewhat simple script to allow for the use of a "portable" version of powershell. Note that this is really only for one scenario: a corporate machine which *can* install modules using the ```-Scope CurrentUser``` flag, but is sick and tired of issues that arise from OneDrive being enabled and screwing anything PowerShell related in the process
+Somewhat simple script to allow for the use of a "portable" version of powershell. Note that this is really only for one scenario: a developer using corporate machine which *can* install modules using the ```-Scope CurrentUser``` flag, but is sick and tired of issues that arise from OneDrive being enabled and screwing anything PowerShell related in the process
 
 ## Features
 - Can run a portable version of PowerShell 7+ if required (testing on this solution was done with the zip deployment of version 7.3.4 found [HERE](https://github.com/PowerShell/PowerShell/releases/download/v7.3.4/PowerShell-7.3.4-win-x64.zip), but would likely work with any of the latest releases in the same manner [HERE](https://aka.ms/powershell-release?tag=stable))
