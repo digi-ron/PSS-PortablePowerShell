@@ -21,7 +21,17 @@ function Load-Local {
 
 function Remove-Local {
     param ([Parameter(Mandatory)][string]$moduleName)
-    Remove-Item "$($newModuleLocation)\$($moduleName)" -Recurse -Force
+
+    $directories = (Get-ChildItem -Path $newModuleLocation -Filter "*$($moduleName)*" -Directory)
+
+    if($directories.Count -le 0) {
+        Write-Warning "no modules match input string ""$($moduleName)"""
+    }
+
+    foreach($dir in $directories) {
+        Remove-Item -Path $dir.FullName -Recurse -Force
+        Write-Output "Removed $($dir.Name)..."
+    }
 }
 
 #working code
