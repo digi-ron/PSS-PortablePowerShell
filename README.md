@@ -21,7 +21,7 @@ Somewhat simple script to allow for the use of a "portable" version of powershel
 - run the ```launch.bat``` file, and happy scripting!
 
 ## modules.txt structure
-The modules.txt file follows a simple, pipe-separated syntax, where the module to be installed is on the left side, and should you wish to install a certain version of a package, a ```|xx.xx.xx``` should be added to the end of the line.
+The modules.txt file follows a simple, pipe-separated syntax, where the module to be installed is on the left side, and should you wish to install a certain version of a package, a ```|xx.xx.xx``` should be added to the end of the line, where the "x"s are version numbers.
 
 For example, if you just needed the latest ```bongoscript``` module, you would simply add:
 ```
