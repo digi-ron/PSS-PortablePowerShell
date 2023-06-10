@@ -35,7 +35,6 @@ bongoscript|1.4.20
 ***NOTE: While this solution can technically support whitespace between the module name, pipe-separator and version number, I'm not recommending it***
 
 ## Limitations
-- no error checking for whitespace in pipe-separated ```modules.txt``` file
 - ```Remove-Local``` really only works if the module in question only has one directory e.g. ```PnP.PowerShell```, and does not work with more complex modules with dependencies such as ```Az```
 - no module "installed" comes up in the ```Get-Module``` command, as they're technically not installed properly, I'm simply modifying the ```$env:PSModulePath``` variable for the script session
 - the ```Load-Local``` function doesn't conform to [Microsoft's Guidelines](https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands). This is intentional as I refused to use something as useless sounding as ```Get-Local``` or ```Add-Local```
