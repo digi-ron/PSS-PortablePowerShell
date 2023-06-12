@@ -39,3 +39,4 @@ bongoscript|1.4.20
 - no module "installed" comes up in the ```Get-Module``` command, as they're technically not installed properly, I'm simply modifying the ```$env:PSModulePath``` variable for the script session
 - the ```Load-Local``` function doesn't conform to [Microsoft's Guidelines](https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands). This is intentional as I refused to use something as useless sounding as ```Get-Local``` or ```Add-Local```
 - ```Load-Local``` doesn't add or save anything to the ```modules.txt``` file. This is intentional, so that if you manage to break the Modules folder, you can simply nuke, recreate, and run with your chosen default modules
+- There is no functionality to update packages. The acceptable solution would be to run ```Remove-Local``` and either restart the script (if the module is in modules.txt) or use the ```Load-Local``` function
