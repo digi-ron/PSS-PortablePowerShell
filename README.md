@@ -18,6 +18,7 @@ Somewhat simple script to allow for the use of a "portable" version of powershel
     - Az
     - Microsoft.Graph
     - PnP.PowerShell (v1.12.0)
+    - CredentialManager
 - run the ```launch.bat``` file, and happy scripting!
 
 ## modules.txt structure
