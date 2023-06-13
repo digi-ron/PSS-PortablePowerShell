@@ -1,3 +1,4 @@
 PnP.PowerShell|1.12.0
 Microsoft.Graph
 Az
+CredentialManager
