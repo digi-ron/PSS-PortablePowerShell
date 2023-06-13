@@ -66,3 +66,6 @@ foreach($module in $moduleArray)
     }
     
 }
+
+# clean-up - stops people wondering what all the variables are for
+Remove-Variable * -ErrorAction SilentlyContinue
