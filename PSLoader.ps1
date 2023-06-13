@@ -11,11 +11,25 @@ function Load-Local {
 
     if($moduleVersion)
     {
-        Find-Module -Name "$($moduleName)" -RequiredVersion $moduleVersion | Save-Module -Path $newModuleLocation -Force
+        if(Test-Path -Path "$($newModuleLocation)\$($moduleName)")
+        {
+            Write-Output "$($moduleName) (v$($moduleVersion)) already installed"
+        }
+        else {
+            Find-Module -Name "$($moduleName)" -RequiredVersion $moduleVersion | Save-Module -Path $newModuleLocation -Force
+            Write-Output "$($moduleName) (v$($moduleVersion)) installed"
+        }
     }
     else
     {
-        Find-Module -Name "$($moduleName)" | Save-Module -Path $newModuleLocation -Force
+        if(Test-Path -Path "$($newModuleLocation)\$($moduleName)")
+        {
+            Write-Output "$($moduleName) already installed"
+        }
+        else {
+            Find-Module -Name "$($moduleName)" | Save-Module -Path $newModuleLocation -Force
+            Write-Output "$($moduleName) installed"
+        }
     }
 }
 
@@ -45,26 +59,10 @@ foreach($module in $moduleArray)
     $splitvar = $module.Split("|")
     if($splitvar[1])
     {
-        if(-not (Test-Path -Path "$($newModuleLocation)\$($splitvar[0].Trim())"))
-        {
-            Load-Local -moduleName "$($splitvar[0].Trim())" -moduleVersion $splitvar[1].Trim()
-            Write-Output "Module $($splitvar[0].Trim()) (v$($splitvar[1].Trim())) installed"
-        }
-        else
-        {
-            Write-Output "Module $($splitvar[0].Trim()) (v$($splitvar[1].Trim())) already installed"
-        }
+        Load-Local -moduleName "$($splitvar[0].Trim())" -moduleVersion $splitvar[1].Trim()
     }
-    else
-    {
-        if(-not (Test-Path -Path "$($newModuleLocation)\$($module)"))
-        {
-            Load-Local -moduleName "$($module)"
-            Write-Output "Module $($module) installed"
-        }
-        else
-        {
-            Write-Output "Module $($module) already installed"
-        }
+    else {
+        Load-Local -moduleName "$($module)"
     }
+    
 }
