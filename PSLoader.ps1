@@ -1,5 +1,5 @@
 # user variables
-$newModuleLocation = $pwd.Path+"\Modules"
+$newModuleLocation = $PSScriptRoot+"\Modules"
 
 # function(s)
 function Load-Local {
@@ -49,6 +49,7 @@ function Remove-Local {
 }
 
 #working code
+Set-Location $PSScriptRoot
 $moduleArray = (Get-Content -Path .\modules.txt).Split([System.Environment]::NewLine)
 $env:PSModulePath += ";$($newModuleLocation)"
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
@@ -65,6 +66,12 @@ foreach($module in $moduleArray)
         Load-Local -moduleName "$($module)"
     }
     
+}
+
+# change directory (if invoked)
+if($args[0])
+{
+    Set-Location "$($args[0])"
 }
 
 # clean-up - stops people wondering what all the variables are for
