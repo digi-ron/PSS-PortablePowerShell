@@ -73,6 +73,3 @@ if($args[0])
 {
     Set-Location "$($args[0])"
 }
-
-# clean-up - stops people wondering what all the variables are for
-Remove-Variable * -ErrorAction SilentlyContinue
