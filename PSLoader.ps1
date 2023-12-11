@@ -49,8 +49,7 @@ function Remove-Local {
 }
 
 #working code
-Set-Location $PSScriptRoot
-$moduleArray = (Get-Content -Path .\modules.txt).Split([System.Environment]::NewLine)
+$moduleArray = (Get-Content -Path "$($PSScriptRoot)\modules.txt").Split([System.Environment]::NewLine)
 $env:PSModulePath += ";$($newModuleLocation)"
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
