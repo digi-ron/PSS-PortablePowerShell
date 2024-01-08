@@ -8,6 +8,8 @@ Somewhat simple script to allow for the use of a "portable" version of powershel
     - ```Remove-Local``` - Removes the module in the modules directory by way of forcefully removing the folder structure
 - has an easy to modify txt file for setting modules to be installed (explained further below)
 - simple usage - ```launch.bat``` file allows for double-click launch with a simple shortcut (required way to launch if intending to use a portable version of PowerShell)
+- has the ability to be run through your PowerShell Profile (by adding script path to ```%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1```)
+- has the ability to be run through developer-added context menu (e.g. "open Portable PowerShell here" using the registry locations ```HKEY_CLASSES_ROOT\Directory\shell``` and ```KEY_CLASSES_ROOT\Directory\Background\shell```)
 
 ## Prerequisites
 - pick a location for the repository structure to go
