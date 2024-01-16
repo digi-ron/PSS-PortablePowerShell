@@ -1,2 +1,2 @@
 @ECHO OFF
-IF EXIST %~dp0\PowerShell\pwsh.exe (start "PowerShell (Portable) - github.com/digi-ron" "%~dp0\PowerShell\pwsh.exe" -noexit -file "%~dp0\PSLoader.ps1" "%cd%") ELSE (start "PowerShell (Local+) - github.com/digi-ron" powershell -noexit -file "%~dp0\PSLoader.ps1" "%cd%")
+IF EXIST %~dp0\PowerShell\pwsh.exe (start "PowerShell (Portable) - github.com/digi-ron" "%~dp0\PowerShell\pwsh.exe" -noexit -noprofile -file "%~dp0\PSLoader.ps1" "%cd%") ELSE (start "PowerShell (Local+) - github.com/digi-ron" powershell -noexit -noprofile -file "%~dp0\PSLoader.ps1" "%cd%")
